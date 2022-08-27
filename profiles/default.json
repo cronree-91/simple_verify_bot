@@ -1,0 +1,11 @@
+{
+  "token": "TOKEN",
+  "prefix": "d!",
+  "ownerId": "731503872098697226",
+  "coOwnersId": [],
+  "serverInvite": "https://discord.gg/testtmp",
+  "botInvite": "https://discord.com/oauth2/authorize?client_id=887986350199013406&permissions=140697402448&scope=bot%20applications.commands%20guilds.join&response_type=code&redirect_uri=https://kuroneko6423.com/rule/VOICEROID/",
+  "mongoDbName": "development_sample_app",
+  "mongoDbUri": "mongodb://localhost:27017",
+  "isSsl": false
+}

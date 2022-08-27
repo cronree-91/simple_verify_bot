@@ -1,0 +1,51 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.7.10'
+}
+
+group = 'jp.cron.sample'
+version = '0.0.1'
+sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "m2-dv8tion"
+        url = "https://m2.dv8tion.net/releases"
+    }
+    maven {
+        name = "chew"
+        url = "https://m2.chew.pro/releases"
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.10'
+    implementation 'org.reflections:reflections:0.10.2'
+
+    implementation "com.google.guava:guava:31.1-jre"
+
+    implementation 'net.dv8tion:JDA:4.4.0_350'
+    implementation 'pw.chew:jda-chewtils:1.21.0'
+    implementation 'com.vdurmont:emoji-java:5.1.1'
+    implementation 'com.sedmelluq:lavaplayer:1.3.78'
+}
+
+compileKotlin {
+    kotlinOptions.javaParameters = true
+}
