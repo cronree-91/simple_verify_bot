@@ -118,4 +118,4 @@ run/
 !gradle-wrapper.jar
 
 profiles/*.json
-!profiles/default.json
+!profiles/debug.json

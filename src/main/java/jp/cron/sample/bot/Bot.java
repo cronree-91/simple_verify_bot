@@ -42,11 +42,8 @@ public class Bot {
 
     public CommandClientBuilder generateCommandClientBuilder() {
         return new CommandClientBuilder()
-                .setPrefix(profile.prefix)
                 .setOwnerId(profile.ownerId)
-                .setCoOwnerIds(profile.coOwnersId)
                 .setEmojis(EmojiParser.parseToUnicode("o"), null, EmojiParser.parseToUnicode("x"))
-                .setServerInvite(profile.serverInvite)
                 .setStatus(OnlineStatus.ONLINE)
                 .addCommands(commandManager.getCommands().toArray(new Command[0]))
                 .addSlashCommands(commandManager.getCommands().toArray(new Command[0]))
@@ -54,7 +51,7 @@ public class Bot {
     }
 
     public JDABuilder jdaBuilder() throws UnknownHostException {
-        return JDABuilder.create(profile.token, Arrays.asList(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.DIRECT_MESSAGES))
+        return JDABuilder.create(profile.token, Arrays.asList(GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_VOICE_STATES, GatewayIntent.DIRECT_MESSAGES, GatewayIntent.GUILD_MESSAGE_REACTIONS))
                 .enableCache(CacheFlag.MEMBER_OVERRIDES, CacheFlag.VOICE_STATE)
                 .disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOTE, CacheFlag.ONLINE_STATUS)
                 .setBulkDeleteSplittingEnabled(true)

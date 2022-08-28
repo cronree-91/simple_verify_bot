@@ -19,26 +19,12 @@ public class ProfileReader {
 
     @Bean
     public Profile profile() throws FileNotFoundException {
-        String profileName = System.getenv("PROFILE_NAME");
-        if (profileName==null || profileName.equals("ENV")) {
-            return loadFromEnv();
-        } else {
-            return loadFromFile(profileName);
-        }
+        return loadFromFile("default");
     }
 
     @Autowired
     public ProfileReader(Gson gson) {
         this.gson = gson;
-    }
-
-    public Profile loadFromEnv() {
-        Profile profile = new Profile();
-        profile.mongoDbUri = System.getenv(PREFIX+"MONGO_DB_URI");
-        profile.mongoDbName = System.getenv(PREFIX+"MONGO_DB_NAME");
-        profile.isSsl = Boolean.valueOf(System.getenv(PREFIX+"MONGO_IS_SSL"));
-
-        return profile;
     }
 
     public Profile loadFromFile(String profileName) throws FileNotFoundException {
